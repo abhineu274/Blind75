@@ -45,3 +45,26 @@ class Solution:
             if diff in hashMap: 
                 return [hashMap[diff], i]
             hashMap[n] = i   
+
+
+
+
+#Two Pointer approach - This will be used to solve the 3sum problem
+# Only difference is that we need to return the indices and not the values
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+
+        # Pair values with their indices and sort by value 
+        nums_with_indices = [(val, idx) for idx, val in enumerate(nums)]
+        nums_with_indices.sort()  # Sort by value
+        
+        left, right = 0, len(nums) - 1
+        while left < right:
+            current_sum = nums_with_indices[left][0] + nums_with_indices[right][0]
+            if current_sum == target:
+                # Return original indices
+                return [nums_with_indices[left][1], nums_with_indices[right][1]]
+            elif current_sum < target:
+                left += 1
+            else:
+                right -= 1
