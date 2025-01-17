@@ -32,6 +32,19 @@ n == height.length
 0 <= height[i] <= 104
 
 
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        i, j = 0, 1
+        maxIndex = 0
+        maxArea = 0
 
+        while j < len(height):
+            if height[j] > height[maxIndex]:
+                maxArea = max(maxArea, min(height[i], height[j])*(j-i))
+                maxIndex = i
+                i = j
+            j+=1
+
+        return maxArea
 
 
