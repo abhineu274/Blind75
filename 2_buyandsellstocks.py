@@ -35,6 +35,7 @@ Constraints:
 
 # Sliding window problem.
 # Initialize two pointers, l and r, where l is the left pointer (buy day) and r is the right pointer (sell day).
+# l = 0, r = 1
 # Initialize maxProfit to 0 to keep track of the maximum profit.
 # Iterate through the prices list with the right pointer.
 # If the price at the right pointer is greater than or equal to the price at the left pointer,
